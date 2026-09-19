@@ -1,0 +1,169 @@
+.item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0 1.25rem;
+  padding-bottom: 2rem;
+}
+
+.item:last-child { padding-bottom: 0; }
+
+/* ── Dot column ── */
+.dotCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.3rem;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c-bg);
+  border: 2px solid var(--c-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(40,108,122,.15);
+  animation: timelinePulse 3s ease-in-out infinite;
+  transition: box-shadow var(--t-base);
+}
+
+.item:hover .dot {
+  box-shadow: 0 0 0 5px rgba(40,108,122,.2);
+}
+
+.dotInner {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-primary-dark);
+}
+
+/* ── Card ── */
+.card {
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  padding: 1.625rem;
+  transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+}
+
+.card:hover {
+  border-color: rgba(58,143,163,0.4);
+  box-shadow: 0 4px 24px rgba(23,33,38,0.08), 0 0 0 1px rgba(58,143,163,0.08);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.125rem;
+  flex-wrap: wrap;
+}
+
+.position {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--c-text);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+}
+
+.companyName {
+  font-weight: 600;
+  color: var(--c-primary-dark);
+}
+
+.sep { color: var(--c-border); }
+
+.location { color: var(--c-text-3); }
+
+.dateBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.dates {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  color: var(--c-text-3);
+  white-space: nowrap;
+}
+
+.currentBadge {
+  background: rgba(40,108,122,.1);
+  color: var(--c-primary-dark);
+  border: 1px solid rgba(40,108,122,.25);
+  border-radius: var(--r-full);
+  padding: 0.15rem 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Description */
+.desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.125rem;
+}
+
+.pt {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--c-text-2);
+  line-height: 1.7;
+  background: none;
+}
+
+.bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-primary);
+  flex-shrink: 0;
+  margin-top: 0.6rem;
+  opacity: 0.85;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  background: rgba(40,108,122,.07);
+  color: var(--c-primary-dark);
+  border: 1px solid rgba(40,108,122,.2);
+  border-radius: var(--r-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: var(--f-mono);
+}
+
+@media (max-width: 768px) {
+  .cardHeader { flex-direction: column; gap: 0.5rem; }
+  .dateBlock { flex-wrap: wrap; }
+}

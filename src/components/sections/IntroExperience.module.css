@@ -1,0 +1,143 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  overflow: hidden;
+  background: #0c1518;
+}
+
+/* ── Background ── */
+.bg {
+  position: absolute;
+  inset: 0;
+  background: #0c1518;
+}
+
+/* ── Photo layers ── */
+.photoWrap {
+  position: absolute;
+  inset: 0;
+  will-change: clip-path;
+}
+
+.photo {
+  position: absolute;
+  /* Right-aligned portrait — editorial feel */
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 55%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.photoBlur {
+  filter: blur(12px) saturate(0) brightness(0.6);
+}
+
+/* ── Scan line ── */
+.scanLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--c-primary-light) 20%,
+    var(--c-primary) 50%,
+    var(--c-primary-light) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 24px 4px rgba(58, 143, 163, 0.5);
+  pointer-events: none;
+  z-index: 10;
+  will-change: top;
+}
+
+/* ── Overlay — darkens right side less so photo shows ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(12, 21, 24, 0.92) 0%,
+    rgba(12, 21, 24, 0.75) 45%,
+    rgba(12, 21, 24, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Text content ── */
+.content {
+  position: absolute;
+  bottom: 12%;
+  left: 0;
+  padding: 0 2.5rem;
+  z-index: 20;
+  max-width: 640px;
+}
+
+.label {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.18em;
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.3em;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  margin-bottom: 1.5rem;
+}
+
+.wordMask {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.word {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ── Teal accent line (visual motif) ── */
+.accentLine {
+  width: 56px;
+  height: 3px;
+  background: var(--c-primary);
+  border-radius: 2px;
+  transform-origin: left center;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .photo {
+    width: 100%;
+    opacity: 0.4;
+  }
+
+  .overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(12, 21, 24, 0.5) 0%,
+      rgba(12, 21, 24, 0.85) 60%,
+      rgba(12, 21, 24, 0.95) 100%
+    );
+  }
+
+  .content {
+    bottom: 10%;
+    padding: 0 1.5rem;
+  }
+}

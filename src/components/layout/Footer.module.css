@@ -1,0 +1,215 @@
+.footer {
+  background: var(--c-bg-dark);
+  border-top: 1px solid rgba(58,143,163,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle ambient glow */
+.footer::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center,
+    rgba(58,143,163,0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* ─── Animated teal rule ──────────────────────────────────────────────────── */
+.topRuleWrap {
+  position: relative;
+  height: 2px;
+  overflow: visible;
+}
+
+.topRule {
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #3A8FA3 25%,
+    #AAD2DC 55%,
+    #3A8FA3 75%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+.ruleDot {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #AAD2DC;
+  box-shadow: 0 0 10px rgba(170,210,220,0.9), 0 0 20px rgba(58,143,163,0.5);
+  pointer-events: none;
+}
+
+/* ─── Inner layout ────────────────────────────────────────────────────────── */
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.75rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Brand ───────────────────────────────────────────────────────────────── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.name {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  display: flex;
+  gap: 0.2em;
+}
+
+.nameFirst {
+  color: rgba(255,255,255,0.88);
+  transition: color var(--t-fast);
+}
+
+.nameLast {
+  color: #3A8FA3;
+  transition: color var(--t-fast);
+}
+
+.brand:hover .nameFirst { color: #ffffff; }
+.brand:hover .nameLast  { color: #AAD2DC; }
+
+.title {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  font-family: var(--f-mono);
+  letter-spacing: 0.08em;
+}
+
+/* ─── Social icons row ────────────────────────────────────────────────────── */
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: var(--r-base);
+  border: 1px solid rgba(58,143,163,0.15);
+  background: rgba(58,143,163,0.03);
+  color: rgba(255,255,255,0.3);
+  transition:
+    color var(--t-fast),
+    border-color var(--t-fast),
+    background var(--t-fast),
+    box-shadow var(--t-fast);
+}
+
+.socialIcon:hover {
+  color: #AAD2DC;
+  border-color: rgba(58,143,163,0.45);
+  background: rgba(58,143,163,0.09);
+  box-shadow: 0 4px 16px rgba(58,143,163,0.18);
+}
+
+/* ─── Right ───────────────────────────────────────────────────────────────── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.22);
+  font-family: var(--f-mono);
+}
+
+/* ─── Back to top button ──────────────────────────────────────────────────── */
+.topBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(58,143,163,0.2);
+  background: rgba(58,143,163,0.04);
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+}
+
+.topBtn:hover {
+  color: #AAD2DC;
+  border-color: rgba(58,143,163,0.5);
+  background: rgba(58,143,163,0.1);
+}
+
+.orbitRing {
+  position: absolute;
+  inset: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--t-fast);
+}
+
+.topBtn:hover .orbitRing { opacity: 1; }
+
+.topArrow {
+  position: relative;
+  z-index: 1;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+/* ─── Bottom micro-line ───────────────────────────────────────────────────── */
+.bottomLine {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(58,143,163,0.08) 30%,
+    rgba(58,143,163,0.08) 70%,
+    transparent 100%
+  );
+  margin: 0 2.5rem 1rem;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .inner {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .socialRow { order: 2; }
+  .right { width: 100%; justify-content: space-between; order: 3; }
+  .bottomLine { margin: 0 1.5rem 1rem; }
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .orbitRing circle { animation: none; }
+  .topRule, .ruleDot { transition: none; }
+}

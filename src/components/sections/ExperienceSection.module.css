@@ -1,0 +1,77 @@
+.experience {
+  background: var(--c-bg);
+}
+
+.header { margin-bottom: 3.5rem; }
+
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.labelLine {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--c-primary-dark), var(--c-primary));
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.labelText {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-primary-dark);
+}
+
+.heading {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--c-text);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.sub {
+  font-size: 1rem;
+  color: var(--c-text-2);
+  max-width: 520px;
+}
+
+/* ── Timeline ── */
+.timeline {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0 1.25rem;
+  max-width: 800px;
+}
+
+.lineTrack {
+  position: relative;
+  width: 2px;
+  background: var(--c-border-light);
+  border-radius: 2px;
+  margin: 0.3rem auto 0;
+  overflow: hidden;
+}
+
+.lineFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, var(--c-primary-dark), var(--c-primary), var(--c-primary-light));
+  border-radius: 2px;
+  will-change: height;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
