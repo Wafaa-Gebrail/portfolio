@@ -23,7 +23,7 @@ export const education: Education[] = [
     degree: "Bachelor's Degree",
     field: 'Computer Science',
     startDate: '2019',
-    endDate: '2023',
+    endDate: '2024',
     description: 'Focused on software engineering, algorithms, and modern web technologies.',
   },
 ];
