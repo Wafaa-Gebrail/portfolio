@@ -19,7 +19,7 @@ export interface Certification {
 export const education: Education[] = [
   {
     id: 'edu-1',
-    institution: 'University Name',
+    institution: 'Damascus University',
     degree: "Bachelor's Degree",
     field: 'Computer Science',
     startDate: '2019',
